@@ -1,0 +1,282 @@
+﻿body {
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #666;
+    background-image: url(' https://i.imgflip.com/6kbw5t.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-weight: 400;
+    color: #1c87c9;
+    font-family: "Trirong", serif;
+}
+
+p {
+    margin: 0 0 5px;
+}
+
+
+/* Style for the left div */
+div.left-div {
+    position: absolute;
+    flex: 1; /* Allow the left div to grow and occupy available space */
+
+    padding: 20px; /* Add some padding for spacing */
+    width: 500px;
+    background-color: #f2f2f2;
+}
+
+/* Style for the right div */
+div.right-div {
+    position: absolute;
+    padding: 15px;
+    right: 200px;
+    width: 400px;
+    height: 500px;
+    background-color: #f2f2f2;
+}
+
+form {
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 2px 5px #f5f5f5;
+    width: 970px;
+    height: 550px;
+    background-color:azure;
+}
+
+.fas {
+    margin: 25px 10px 0;
+    font-size: 72px;
+    color: #fff;
+}
+
+.fa-envelope {
+    transform: rotate(-20deg);
+}
+
+.fa-at, .fa-mail-bulk {
+    transform: rotate(10deg);
+}
+
+input, textarea, select {
+    width: calc(100% - 18px);
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #1c87c9;
+    outline: none;
+}
+
+    input::placeholder {
+        color: #666;
+    }
+
+button, .Reset {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #1c87c9;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+}
+
+    button:hover {
+        background: #2371a0;
+    }
+
+    .main-block
+
+{
+    flex-direction: row;
+}
+
+.fa-envelope {
+    margin-top: 0;
+    margin-left: 20%;
+}
+
+.fa-at {
+    margin-top: -10%;
+    margin-left: 65%;
+}
+
+.fa-mail-bulk {
+    margin-top: 2%;
+    margin-left: 28%;
+}
+
+    /* Style for the left div */
+    div.left-div {
+        position: absolute;
+        flex: 1; /* Allow the left div to grow and occupy available space */
+        padding: 20px; /* Add some padding for spacing */
+        width: 500px;
+        background-color: #f2f2f2;
+    }
+
+    /* Style for the right div */
+    div.right-div {
+        position: absolute;
+        padding: 15px;
+        right: 200px;
+        width: 400px;
+        height: 500px;
+        background-color: #f2f2f2;
+    }
+
+    form {
+        padding: 20px;
+        margin: 20px;
+        box-shadow: 0 2px 5px #f5f5f5;
+        width: 970px;
+        height: 550px;
+        background-color: azure;
+    }
+
+    .fas {
+        margin: 25px 10px 0;
+        font-size: 72px;
+        color: #fff;
+    }
+
+    .fa-envelope {
+        transform: rotate(-20deg);
+    }
+
+    .fa-at, .fa-mail-bulk {
+        transform: rotate(10deg);
+    }
+
+    input, textarea, select {
+        width: calc(100% - 18px);
+        padding: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #1c87c9;
+        outline: none;
+    }
+
+        input::placeholder {
+            color: #666;
+        }
+
+    button, .Reset {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: #1c87c9;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+    }
+
+        button:hover {
+            background: #2371a0;
+        }
+
+    .main-block {
+        flex-direction: row;
+    }
+
+    .fa-envelope {
+        margin-top: 0;
+        margin-left: 20%;
+    }
+
+    .fa-at {
+        margin-top: -10%;
+        margin-left: 65%;
+    }
+
+    .fa-mail-bulk {
+        margin-top: 2%;
+        margin-left: 28%;
+    }
+
+
+@media screen and (max-width: 768px) {
+
+    div.right-div {
+        position: absolute;
+        padding: 15px;
+        left: 105px;
+        width: 400px;
+        height: 500px;
+        background-color: #f2f2f2;
+        margin-top: 135%;
+    }
+
+    form {
+        height: 1200px;
+        width: 540px;
+    }
+}
+/*Laptop*/
+@media screen and (min-width: 768px) {
+
+    div.right-div {
+        position: absolute;
+        padding: 15px;
+        left: 210px;
+        width: 400px;
+        height: 500px;
+        background-color: #f2f2f2;
+        margin-top: 90%;
+    }
+
+    form {
+        height: 1400px;
+        width: 550px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    div.right-div {
+        position: absolute;
+        padding: 15px;
+        left: 600px;
+        width: 400px;
+        height: 500px;
+        background-color: #f2f2f2;
+        margin-top: 1px;
+    }
+
+    form {
+        padding: 10px;
+        margin: 20px;
+        box-shadow: 0 2px 5px #f5f5f5;
+        width: 1000px;
+        height: 700px;
+        background-color: lightpink;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    div.right-div {
+        position: absolute;
+        padding: 15px;
+        left: 800px;
+        width: 400px;
+        height: 500px;
+        background-color: #f2f2f2;
+        margin-top: 1px;
+    }
+
+    form {
+        padding: 10px;
+        margin: 20px;
+        box-shadow: 0 2px 5px #f5f5f5;
+        width: 1150px;
+        height: 700px;
+        background-color: lightpink;
+    }
+}

@@ -1,0 +1,54 @@
+﻿@model List<MyMvcApplication.Models.EnrollmentDetail>
+<html>
+<head>
+    <title>EnrollmentHeader</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Student/StudentIndex.css" asp-append-version="true" />
+</head>
+<body>
+    <h2>EnrollmentDetail List</h2>
+    <div class="table-wrapper">
+        <div class="container text-center">
+            <div class="row row-cols-auto">
+                <div class="col">
+                    <form>
+                        <button class="btn btn-close-white " asp-area="" asp-controller="EnrollmentDetailFile" asp-action="Add">Add</button>
+                    </form>
+                </div>
+                <div class="col1">
+                    <form asp-controller="EnrollmentDetailFile" asp-action="Search" method="get">
+                        <input type="text" name="searchString" placeholder="Search by ID or Name">
+                        <button type="submit">Search</button>
+                        <button type="submit">All</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <table class="fl-table">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col">ID</th>
+                    <th scope="col">Subject Code</th>
+                    <th scope="col">EDP code</th>
+                    <th scope="col">Status</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var EnrollmentDetail in Model)
+                {
+                    <tr>
+                        <td>@EnrollmentDetail.ENRDSTUDID</td>
+                        <td>@EnrollmentDetail.ENRDSTUDSUBJCODE</td>
+                        <td>@EnrollmentDetail.ENRDSTUDEDPCODE</td>
+                        <td>@EnrollmentDetail.ENRDSTUDSTATUS</td>   
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+   

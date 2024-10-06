@@ -1,0 +1,126 @@
+﻿@model MyMvcApplication.Models.SubjectSched;
+<html>
+<head>
+    <title>Add Subject Schedule</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!-- Include flatpickr stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Include flatpickr JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="~/css/SubjectSched/AddSubjectSched.css" asp-append-version="true" />
+</head>
+<body>
+    @if (!string.IsNullOrEmpty(TempData["ConflictError"] as string))
+    {
+        <div class="alert alert-danger">
+            @TempData["ConflictError"]
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(TempData["ValidationError"] as string))
+    {
+        <div class="alert alert-danger">
+            @TempData["ValidationError"]
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(TempData["SubjectCodeError"] as string))
+    {
+        <div class="alert alert-danger">
+            @TempData["SubjectCodeError"]
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(TempData["DuplicateError"] as string))
+    {
+        <div class="alert alert-danger">
+            @TempData["DuplicateError"]
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(TempData["MissingFieldsError"] as string))
+    {
+        <div class="alert alert-danger">
+            @TempData["MissingFieldsError"]
+        </div>
+    }
+    
+
+    <form method="post" asp-action="Add">
+        <div class="left-div">
+            <h1>Subject Schedule Form</h1>
+            <label asp-for="EDPCODE"></label>
+            <input type="text" asp-for="EDPCODE" class="form-control" placeholder="77301" maxlength="5" >
+
+            <label asp-for="SUBJCODE"></label>
+            <input type="text" asp-for="SUBJCODE" class="form-control" id="subjCodeInput" placeholder="ELDNET31" maxlength="10" >
+
+            <label asp-for="STARTTIME">&#128336; Start Time</label>
+            <input type="text" asp-for="STARTTIME" class="form-control" id="startTimePicker" >
+
+            <label asp-for="ENDTIME">&#128336; End Time</label>
+            <input type="text" asp-for="ENDTIME" class="form-control" id="endTimePicker" >
+
+       
+
+                <select class="form-select" asp-for="FXM" aria-label="AM/PM " >
+                <option value="" selected>AM/PM </option>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+                </select>
+            
+        </div>
+
+        <div class="right-div">
+                <label asp-for="ROOM"></label>
+            <input type="text" asp-for="ROOM" class="form-control" placeholder="219" maxlength="5" >
+
+                <label asp-for="DAYS"></label>
+            <input type="text" asp-for="DAYS" class="form-control" placeholder="MON" maxlength="10" >
+                   
+                <label asp-for="SECTION"></label>
+            <input type="text" asp-for="SECTION" class="form-control" placeholder="NON-BLOCK" maxlength="10" >
+          
+                <label asp-for="SCHOOLYEAR"></label>
+            <input type="text" asp-for="SCHOOLYEAR" class="form-control" placeholder="2023" maxlength="4" >
+
+            <button id="showErrorButton" type="submit" href="/">Submit</button>
+            <hr>
+            <button class="Reset" type="reset" id="resetButton" value="Reset">Reset</button>
+
+        
+        </div>
+    </form>
+    <script>
+        function resetForm() {
+            // Reset all form fields
+            document.getElementById("subjCodeInput").value = "";
+            document.getElementById("STARTTIME").value = "";
+            document.getElementById("ENDTIME").value = "";
+            document.getElementById("ROOM").value = "";
+            document.getElementById("DAYS").value = "";
+            document.getElementById("SECTION").value = "";
+            document.getElementById("SCHOOLYEAR").value = "";
+        }
+
+      
+            // Initialize flatpickr with time options
+        flatpickr("#startTimePicker", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true,
+        });
+
+        flatpickr("#endTimePicker", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true,
+        });
+    </script>
+    
+
+</body>
+</html>

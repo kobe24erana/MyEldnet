@@ -1,0 +1,60 @@
+﻿
+@model MyMvcApplication.Models.SubjectAndSubjectPreq
+
+<html>
+
+    <head>
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+         <link rel="stylesheet" href="~/css/Student/AddStudent.css" asp-append-version="true" />
+    </head>
+
+    <body> 
+        @*FONTS*@
+        <div class="main-block">
+
+            <h2>Edit Subject</h2>
+
+    <form id="editSubjectForm" method="post" asp-action="Edit">
+
+    	<input type="hidden" asp-for="SUBJCODE" />
+
+	    <input type="hidden" asp-for="SUBJCOURSECODE" />
+
+         <div class="left-div">
+
+               <label asp-for="SUBJDESC"></label>
+                  <input type="text" asp-for="SUBJDESC" class="form-control" maxlength="25" required />
+
+              <label asp-for="SUBJUNITS"></label>
+              <select class="form-select" asp-for="SUBJUNITS" aria-label="Units" required>
+                 <option value="2" selected>2</option>
+                 <option value="3">3</option>
+              </select>
+
+              <label asp-for="SUBJREGOFRNG"></label>
+              <select class="form-select" asp-for="SUBJREGOFRNG" aria-label="Offering" required>
+                 <option value="" selected>Select Offering </option>
+                <option value="1">First Semester</option>
+                <option value="2">Second Semester</option>
+                <option value="3">Summer</option>
+              </select>
+
+             <label asp-for="SFSUBJCATEGORY"></label>
+             <select class="form-select" asp-for="SFSUBJCATEGORY" aria-label="Select Category" required>
+                 <option value="" selected>Select Category </option>
+                 <option value="Lec">Lecture</option>
+                 <option value="Lab">Laboratory</option>
+             </select>
+
+             <label asp-for="SUBJCURRCODE"></label>
+                 <input type="text" asp-for="SUBJCURRCODE" class="form-control" placeholder="AY2023" required />
+
+            <button type="submit">Save Changes</button>
+            <hr>
+                <button type="button" onclick="location.href='@Url.Action("Index")'" class="btn btn-secondary">Cancel</button>
+          </div>
+      </form>
+     </div>
+  </body>
+ </html>

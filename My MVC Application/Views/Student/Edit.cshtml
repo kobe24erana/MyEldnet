@@ -1,0 +1,70 @@
+﻿@model MyMvcApplication.Models.Student
+<html>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Student/AddStudent.css" asp-append-version="true" />
+</head>
+<body>
+    @*FONTS*@
+    <div class="main-block">
+      
+<h2>Edit Student</h2>
+
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="STUDSTATUS" />
+    <label asp-for="STUDID"></label>
+    <input asp-for="STUDID" class="form-control" readonly />
+
+         <div class="form-group">
+              <label asp-for="STUDLNAME"></label>
+              <input asp-for="STUDLNAME" class="form-control" />
+        </div>
+
+        <div class="form-group">
+              <label asp-for="STUDFNAME"></label>
+              <input asp-for="STUDFNAME" class="form-control" />
+        </div>
+
+         <div class="form-group">
+              <label asp-for="STUDMNAME"></label>
+              <input asp-for="STUDMNAME" class="form-control" />
+         </div>
+
+            <select class="form-select" asp-for="STUDCOURSE" aria-label="Select Course" required>
+                <option value="" selected>Select Course </option>
+                <option value="BSIT">BSIT</option>
+                <option value="BSHM">BSHM</option>
+                <option value="BSA">BSA</option>
+                <option value="BSMA">BSMA</option>
+                <option value="BSMA-IT">BSMA-IT</option>
+                <option value="BSBA">BSBA</option>
+                <option value="BSCRIM">BSCRIM</option>
+                <option value="BSMARINE">BSMARINE</option>
+            </select>
+
+            <label asp-for="STUDYEAR"></label>
+            <select class="form-select" asp-for="STUDYEAR" aria-label="Select Year" required>
+                <option value="" selected>Select year </option>
+                <option value="1">First Year</option>
+                <option value="2">Second Year</option>
+                <option value="3">Third Year</option>
+                <option value="4">Fourth Year</option>
+            </select>
+
+            <label asp-for="STUDREMARKS"></label>
+            <select class="form-select" asp-for="STUDREMARKS" aria-label="Select Remarks" required>
+                <option value="" selected>Select Remarks </option>
+                <option value="Old">Old</option>
+                <option value="New">New</option>
+                <option value="Shiftee">Shiftee</option>
+                <option value="Transferee">Transferee</option>
+                <option value="Cross-Enrolle">Cross-Enroll</option>
+            </select>
+
+         <button type="submit">Save changes</button>
+    </form>
+    </div>
+</body>
+</html>

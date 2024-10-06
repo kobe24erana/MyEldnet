@@ -1,0 +1,79 @@
+﻿@model List<MyMvcApplication.Models.Student>
+<html>
+<head>
+    <title>Student List</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Student/StudentIndex.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <h2>Student List</h2>
+    <div class="table-wrapper">
+        <div class="container text-center">
+            <div class="row row-cols-auto">
+                <div class="col">
+                    <form>
+                        <button class="btn btn-close-white " asp-area="" asp-controller="Student" asp-action="Add">Add Student</button>
+                    </form>
+                </div>
+                <div class="col1">
+                    <form asp-controller="Student" asp-action="Search" method="get">
+                        <input type="text" name="searchString" placeholder="Search by ID or Name">
+                        <button type="submit">Search</button>
+                        <button type="submit">All</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <table class="fl-table">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col">ID</th>
+                    <th scope="col">LAST</th>
+                    <th scope="col">FIRST</th>
+                    <th scope="col">MIDDLE</th>
+                    <th scope="col">COURSE</th>
+                    <th scope="col">YEAR</th>
+                    <th scope="col">REMARKS</th>
+                    <th scope="col">STATUS</th>                   
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model)
+                {
+                    <tr>
+                        <td>@student.STUDID</td>
+                        <td>@student.STUDLNAME</td>
+                        <td>@student.STUDFNAME</td>
+                        <td>@student.STUDMNAME</td>
+                        <td>@student.STUDCOURSE</td>
+                        <td>@student.STUDYEAR</td>
+                        <td>@student.STUDREMARKS</td>
+                        <td>@student.STUDSTATUS</td>
+                      
+                        
+                        <td class="d-flex">
+                            <a asp-action="Edit" asp-route-id="@student.STUDID" method="get">
+                                <i class="fas fa-edit fa-2x"></i>
+                            </a>
+
+                            <form asp-action="Delete" asp-route-id="@student.STUDID" method="post">
+                                <button type="submit" onclick="return confirm('Are you sure you want to delete this student?')">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                      
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

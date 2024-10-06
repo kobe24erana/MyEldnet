@@ -1,0 +1,80 @@
+﻿@model MyMvcApplication.Models.EnrollmentDetail
+<html>
+<head>
+    <title>Enrollment Form</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Enrollment Form/Enrollment.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <div class="Enrollment">
+        <form method="post" id="enrollmentForm" class="d-flex">
+            <div class="stud-id">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" name="studentId" class="form-control" placeholder="Enter Student ID" maxlength="8" />
+            </div>
+
+            <div class="edp-id">
+                <label for="EdpId">EDP CODE:</label>
+                <input type="text" id="edpId" name="edpId" class="form-control" placeholder="Enter EDP CODE" maxlength="5" />
+            </div>
+
+            <div class="info">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" readonly />
+            </div>
+
+            <div class="course">
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course" readonly />
+            </div>
+
+            <div class="year">
+                <label for="year">Year:</label>
+                <input type="text" id="year" name="year" readonly />
+            </div>
+
+            <button type="button" class="save" id="saveEnrollment" onclick="saveEnrollment()">Submit</button>
+            <button type="reset" class="reset" id="reset">Cancel</button>
+        </form>
+
+        <div class="table">
+            <table class="fl-table">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="col">EDP CODE</th>
+                        <th scope="col">SUBJECT CODE</th>
+                        <th scope="col"> START TIME </th>
+                        <th scope="col">END TIME </th>
+                        <th scope="col">DAYS </th>
+                        <th scope="col">ROOM </th>
+                        <th scope="col">UNITS</th>
+                    </tr>
+                </thead>
+                <tbody id="edpTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="totalUnitsContainer">
+        <label for="totalUnits">Total Units:</label>
+        <input type="text" id="totalUnits" name="totalUnits" readonly />
+    </div>
+
+    <div class="encodedBy">
+        <label for="encodedBy">Encoded By:</label>
+        <input type="text" id="encodedBy" name="encodedBy" />
+    </div>
+
+    @section scripts {
+        <script src="~/js/Enrollment Form/Enrollment.js"></script>
+    }
+
+</body>
+</html>
+
+
+

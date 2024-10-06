@@ -1,0 +1,103 @@
+﻿@model MyMvcApplication.Models.Student
+<html>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Student/AddStudent.css" asp-append-version="true" />
+</head>
+<body>
+
+    @*ERROR MESSAGE IN DIV HTML*@
+    @if (!string.IsNullOrEmpty(TempData["DuplicateError"] as string))
+    {
+        <div class="alert alert-danger">
+            @TempData["DuplicateError"]
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(TempData["MissingFieldsError"] as string))
+    {
+        <div class="alert alert-danger">
+            @TempData["MissingFieldsError"]
+        </div>
+    }
+
+    @*FONTS*@
+    <div class="main-block">
+        <div class="left-part">
+            <i class="fas fa-envelope"></i>
+            <i class="fas fa-at"></i>
+            <i class="fas fa-mail-bulk"></i>
+        </div>
+        @*FORM AREA*@
+        <form method="post" asp-action="Add" enctype="multipart/form-data">
+            <h1>Student Form</h1>
+            <div class="info">
+                <i class="fa-solid fa-gears"></i>
+                <label asp-for="STUDID"></label>
+                <input type="text" asp-for="STUDID" class="form-control" placeholder="123456" maxlength="8" />
+                <label asp-for="STUDLNAME"></label>
+
+                <input type="text" asp-for="STUDLNAME" class="form-control" placeholder="Ayo" maxlength="20" />
+                <label asp-for="STUDFNAME"></label>
+
+                <input type="text" asp-for="STUDFNAME" class="form-control" placeholder="Ryan" maxlength="20" />
+                <label asp-for="STUDMNAME"></label>
+
+                <input type="text" asp-for="STUDMNAME" class="form-control" placeholder="Andrino" maxlength="20" />
+                <label asp-for="STUDCOURSE"></label>
+
+                <select class="form-select" asp-for="STUDCOURSE" aria-label="Select Course" 
+                >
+                    <option value="" selected>Select Course </option>
+                    <option value="BSIT">BSIT</option>
+                    <option value="BSHM">BSHM</option>
+                    <option value="BSA">BSA</option>
+                    <option value="BSMA">BSMA</option>
+                    <option value="BSMA-IT">BSMA-IT</option>
+                    <option value="BSBA">BSBA</option>
+                    <option value="BSCRIM">BSCRIM</option>
+                    <option value="BSMARINE">BSMARINE</option>
+                </select>
+
+                <label asp-for="STUDYEAR"></label>
+                <select class="form-select" asp-for="STUDYEAR" aria-label="Select Year" >
+                    <option value="" selected>Select year </option>
+                    <option value="1">First Year</option>
+                    <option value="2">Second Year</option>
+                    <option value="3">Third Year</option>
+                    <option value="4">Fourth Year</option>
+                </select>
+
+                <label asp-for="STUDREMARKS"></label>
+                <select class="form-select" asp-for="STUDREMARKS" aria-label="Select Remarks" >
+                    <option value="" selected>Select Remarks </option>
+                    <option value="Old">Old</option>
+                    <option value="New">New</option>
+                    <option value="Shiftee">Shiftee</option>
+                    <option value="Transferee">Transferee</option>
+                    <option value="Cross-Enrolle">Cross-Enroll</option>
+                </select>
+
+            </div>
+            <button id="showErrorButton" type="submit" href="/">Submit</button>
+            <hr>
+            <button class="Reset" type="reset" value="Reset">Reset</button>
+
+        </form>
+
+    </div>
+    <script>
+        // GETTING THE TEMPDATA IN STUDENT CONTROLLER
+        document.getElementById("showErrorButton").addEventListener("click", function () {
+            if (@TempData.ContainsKey("DuplicateError")) {
+                document.getElementById("duplicateError").textContent = "@TempData["DuplicateError"]";
+                document.getElementById("duplicateError").style.display = "block";
+            }
+        });
+
+
+    </script>
+</body>
+</html>

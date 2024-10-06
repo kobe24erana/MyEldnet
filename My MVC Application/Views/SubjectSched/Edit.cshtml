@@ -1,0 +1,70 @@
+﻿@model MyMvcApplication.Models.SubjectSched
+<html>
+	<head>
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+			<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+			<link rel="stylesheet" href="~/css/Student/AddStudent.css" asp-append-version="true" />
+	</head>
+
+	<body>
+			@*FONTS*@
+			<div class="main-block">
+
+					<h2>Edit Subject Schedule</h2>
+		<form id="editSubjectForm" method="post" asp-action="Edit">
+			<input type="hidden" asp-for="EDPCODE" /> <!-- Include a hidden field for EDP Code -->
+			<!-- Add input elements for other properties -->
+			<label asp-for="SUBJCODE"></label>
+			<input asp-for="SUBJCODE" class="form-control" />
+
+			<label asp-for="STARTTIME"></label>
+			<input asp-for="STARTTIME" class="form-control" />
+
+			<label asp-for="ENDTIME"></label>
+			<input type="time" asp-for="ENDTIME" class="form-control" required step="60">
+
+			<select class="form-select" asp-for="FXM" aria-label="AM/PM " required>
+				<option value="" selected>AM/PM </option>
+				<option value="AM">AM</option>
+				<option value="PM">PM</option>
+			</select>
+
+
+	
+		<label asp-for="ROOM"></label>
+		<input type="text" asp-for="ROOM" class="form-control" placeholder="219" maxlength="5" required />
+
+		<label asp-for="DAYS"></label>
+		<input type="text" asp-for="DAYS" class="form-control" placeholder="MON" maxlength="10" required />
+
+		<label asp-for="SECTION"></label>
+		<input type="text" asp-for="SECTION" class="form-control" placeholder="NON-BLOCK" maxlength="10" required />
+
+		<label asp-for="SCHOOLYEAR"></label>
+		<input type="text" asp-for="SCHOOLYEAR" class="form-control" placeholder="2023" maxlength="4" required />
+
+			<label asp-for="CLASSSIZE"></label>
+			<input type="text" asp-for="CLASSSIZE" class="form-control" placeholder="2023" maxlength="4" required />
+
+			<label asp-for="STATUS"></label>
+			<input type="text" asp-for="STATUS" class="form-control" placeholder="2023" maxlength="4" required />
+
+			
+			@if (!ViewData.ModelState.IsValid)
+			{
+				<div class="validation-summary-errors">
+					<ul>
+						@foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+						{
+							<li>@modelError.ErrorMessage</li>
+						}
+					</ul>
+				</div>
+			}
+
+			<button type="submit">Save Changes</button>
+		</form>
+			
+			</div>
+	</body>
+</html>

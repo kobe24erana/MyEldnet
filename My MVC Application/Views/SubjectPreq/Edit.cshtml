@@ -1,0 +1,49 @@
+﻿@model MyMvcApplication.Models.SubjectAndSubjectPreq
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Student/AddStudent.css" asp-append-version="true" />
+</head>
+
+<body>
+    @*FONTS*@
+    <div class="main-block">
+
+        <h2>Edit Subject Prequisite</h2>
+
+        <form id="editSubjectPreqForm" method="post" asp-action="Edit">
+
+            <input type="hidden" asp-for="SUBJCODE" />
+
+            <input type="hidden" asp-for="SUBJCOURSECODE" />
+
+            <div class="right-div">
+                <h1>Prerequisite Information</h1>
+                <label asp-for="SUBJPRECODE"></label>
+                <input type="text" asp-for="SUBJPRECODE" id="SUBJPRECODE" class="form-control" placeholder="e.g., Pe101"  />
+
+                <label for="SUBJCATEGORY">CATEGORY</label>
+                <div class="form-check">
+                    <input type="radio" name="SUBJCATEGORY" value="Prerequisite" asp-for="SUBJPRECODE" class="form-check-input">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Pre-requisite
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="SUBJCATEGORY" value="Corequisite" asp-for="SUBJPRECODE" class="form-check-input">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Co-requisite
+                    </label>
+                </div>
+                <hr>
+                <button id="showErrorButton" type="submit" href="/">Submit</button>
+                <hr>
+                <button class="Reset" type="reset" id="resetButton" value="Reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
